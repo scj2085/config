@@ -1,0 +1,22 @@
+#spring:
+#  cloud:
+#    bus:
+#      destination: officeBus
+#  sleuth:
+#    scheduled:
+#      skip-pattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask  #如果要跳过某些@Scheduled注释类的Span创建，您可以使用与@Scheduled注释类的完全限定名称匹配的正则表达式来设置
+#    integration:
+#      patterns: trace	#以明确提供要包括的用于跟踪的通道的名称。默认情况下，所有通道都包含在内。
+#ribbon:
+#  EnableZoneExclusivity: true	#？？？？
+#  ReadTimeout: 15000	#如果代理路由引导您通过Ribbon负载均衡器，文件上传超时设置
+#  ConnectTimeout: 5000
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 45000	#文件上传？？？？
+

@@ -1,0 +1,46 @@
+from: approve-config/application/application-dev.yml11
+spring:
+
+  rabbitmq:
+    host: localhost
+    username: springcloud
+    password: 123456
+#    virtual-host: /work-office
+
+  sleuth:
+    sampler:
+      percentage: 1	#spans的收集率
+
+#logging:	#？？？？？？
+#  config: ${LOGBACK_CONFIG:http://localhost:9999/configServer/${spring.application.name}/${spring.profiles.active:default}/${spring.cloud.config.label:master}/logback.xml}
+#  path: log
+
+#jedis:
+#  servers:
+
+
+#message:
+#  send:
+#    switch:
+#      close: true	#？？？？？？
+
+eureka:
+  instance:
+#    prefer-ip-address: true	#当猜测主机名时，服务器的IP地址应该在操作系统报告的主机名中使用。？？？？？
+#    health-check-url-path: ${server.context-path:}/health	#获取此实例的相对运行状况检查URL路径。然后，健康检查页面URL由主机名和通信类型构建，如securePort和nonSecurePort中指定的安全或不安全。????
+#    status-page-url-path: ${server.context-path:}/info	#获取此实例的相对状态页面URL路径。然后，状态页面URL由安全端口和非安全端口中指定的hostName和通信类型构建 - 安全或不安全。它通常用于其他服务的信息目的，以查找此实例的状态。用户可以提供一个简单的HTML来指示实例的当前状态。????
+#    metadata-map:
+#      zone: ${spring.profiles.active}	#服务器部署区域设置??????
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+#    healthcheck:
+#      enabled: true	#eureka.client.healthcheck.enabled=true只能在application.yml中设置
+#    prefer-same-zone-eureka: false	#服务器部署区域设置？？？？？？？？
+
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+
