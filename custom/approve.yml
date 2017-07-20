@@ -1,0 +1,8 @@
+approve: approve
+#management:
+#  port: ${MANAGEMENT_PORT:8768}
+#spring:
+#  activiti:
+#    database-schema-update: false
+mysql:
+  schema: approve

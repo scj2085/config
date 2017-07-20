@@ -9,6 +9,10 @@ spring:
   sleuth:
     sampler:
       percentage: 1	#spans的收集率
-
+eureka:
+  instance:
+  client:
+    serviceUrl:
+      defaultZone: "http://localhost:8761/eureka/"
 
 

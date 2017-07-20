@@ -1,0 +1,9 @@
+zuul:
+  ignored-services: '*'	#其它服务名称不考虑代理自动。默认情况下，发现客户端中的所有服务都将被代理。在此示例中，除 “routes中” 之外，所有服务都被忽略。
+# TODO: 去掉每个端口中admin的访问
+  sensitive-headers:	#默认设置sensitiveHeaders: Cookie,Set-Cookie,Authorization，无需设置除非你需要不同的配置.敏感headers也支持全局设置 zuul.sensitiveHeaders. 如果在单个路由中设置 sensitiveHeaders 会覆盖全局 sensitiveHeaders 设置.
+  routes:
+    approve:
+      path: /approve/**
+      serviceId: approve-provider
+      strip-prefix: false	#在转发之前标记是否从路径中删除前缀。X-Forwarder-Host请求头默认添加到转发请求中。设置zuul.addProxyHeaders=false禁用它。路径前缀默认被删除， 到后台服务的请求会添加一个 “X-Forwarded-Prefix”(“/v*/**”在上面的例子中)。
